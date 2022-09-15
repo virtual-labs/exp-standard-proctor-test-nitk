@@ -1,13 +1,498 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<!-- Add CSS at the head of HTML file -->
-    <link rel="stylesheet" href="./css/main.css">
-</head>
-<body>
-		<!-- Your code goes here-->
+<meta charset="UTF-8">
+<title>SOLVE</title>
+<script type="text/javascript" src="js/jquerymin.js"></script>
+<script type="text/javascript" src= "js/ej.web.all.js"></script> <!-- for graph -->
+<link rel="stylesheet" href="css/proctor.css" />
+<script type="text/javascript" src="js/proctor.js"></script>
+<script>
+var simsubscreennum=0;
+var temp=0;
+</script>
+<style>
+.popup
+{
+	border-radius:5px;
+	background-color:black;
+	color:white;
+	padding:5px;
+}
 
-	<!-- Add JS at the bottom of HTML file --> 
-        <script src="./js/main.js"></script>
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  left:100px;
+  visibility: hidden;
+  width: 600px;
+  background-color: black;
+  color: #fff;
+  border-radius: 6px;
+  padding: 10px 10px 10px 10px;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 100;
+  <!-- text-align:center; -->
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+</style>
+</head>
+
+<body style="margin:0; font-family:verdana;">
+<div id="simscreen">
+<div id="title"><h3>STANDARD PROCTOR COMPACTION TEST </h3></div>
+
+<div class="simsubscreen" id="canvas0" >
+<h4 class="incanvas">Objective:</h4>
+<p class="incanvas" style="font-size:14px;">To determine optimum moisture content and maximum dry density for a soil by conducting standard proctor compaction test.</p><br/>
+<h4 class="incanvas">Apparatus used:</h4>
+<p class="incanvas" style="font-size:14px;">Cylindrical mould, Rammer, Weighing machine, Graduated jar, Trowel, Oven etc.</p>
+
+<img style="position:absolute; left:0px; top:190px;" title = "" src="images/human.png" />
+<img style="position:absolute; left:150px; top:340px;" title = "Table" src="images/table.png" />
+<img style="position:absolute; left:560px; top:280px; height:100px; width:30px; height:25%; transform:rotate(-90deg)" title = "Rammer" src="images/rammer3.png" />
+<img style="position:absolute; left:385px; top:285px; width:12.5%;" title = "Mould" src="images/mould.png" />
+<img style="position:absolute; left:162px; top:255px; width:25%;"  title = "Weighing Machine" src="images/wm1.png" />
+&nbsp;<span class="tooltip" style="border-bottom:1px dotted ; color:red; top:20px; cursor:pointer;"><strong>Description</strong>
+<span  class="tooltiptext" style="font-size:14px; text-align:justify;"><strong style="color:red;">Compaction</strong> is a type of mechanical stabilization where the soil mass is densified with mechanical energy, also known as compactive effort. The mechanical energy may be produced by the dynamic load, static load, vibration, or tamping. During compaction, the soil particles are relocated, and the air volume is reduced. It may also involve a modification of the moisture content, and in the saturated coarse-grained soil, the moisture content may be pressed out during the process of compaction.</span></span>
+</div>
+
+<div class="simsubscreen" id="canvas1" style="visibility:hidden;">
+<strong class="incanvas">STEP</strong>
+<span class="circlebg">&nbsp;1&nbsp;</span>
+<p class="steptext">&nbsp;Take air dried soil in a pan and measure it up to 2kg using weighing machine.</p>
+<img id="1-0" style="position:absolute; left:175px; top:300px;" src="images/wm1.png" />
+<img id="1-1" style="position:absolute; left:235px; top:420px;" src="images/on.png" />
+<img id="1-2" style="position:absolute; left:0px; top:120px; visibility:hidden;" src="images/plate.png" />
+<img id="1-3" style="position:absolute; left:340px; top:420px;" src="images/tare.png" />
+<img id="1-4" style="position:absolute; left:350px; top:120px; visibility:hidden;" src="images/capan.png" />
+<img id="1-5" style="position:absolute; left:250px; top:251.5px; visibility:hidden;" src="images/soil.png" />
+<p id="p1-1" style="position:absolute; left:278px; top:375px;"></p>
+</div>
+
+<div class="simsubscreen" id="canvas2" style="visibility:hidden;">
+<strong class="incanvas">STEP</strong>
+<span class="circlebg">&nbsp;2&nbsp;</span>
+<p class="steptext">&nbsp;Place 20&micro;m sieve on the pan and pour weighed quantity of air dried soil (Fine aggregate) to the sieve then close the lid.</p>
+<img id="2-3" style="position: absolute; left:212.5px; top: 272px; visibility:hidden;" src="images/soil.png"/>
+<img id="2-1" style="position: absolute; left:200px; top:300px;" src="images/pan_fill.png"/>
+<img id="2-2" style="position: absolute; left:450px; top: 300px; cursor:pointer;" src="images/1a.png"/>
+<img id="2-5" style="position: absolute; left:200px; top:160px; cursor:pointer; visibility:hidden" src="images/cap.png"/>
+<img id="2-6" style="position:absolute; left:280px; top:105px; visibility:hidden;" src="images/capan.png"/>
+<img id="2-7" style="position:absolute; left:255px; top:245px; visibility:hidden;" src="images/pc.png"/>
+</div>
+
+<div class="simsubscreen" id="canvas3" style="visibility:hidden;">
+<strong class="incanvas">STEP</strong>
+<span class="circlebg">&nbsp;3&nbsp;</span>
+<p class="steptext">&nbsp;Place the set of sieves in the mechanical shaker and allow to shake for 10 minutes.</p>
+<img id="3-1" style="position:absolute;left:450px; top:140px; " src="images/4a.png"/>
+<img id="3-2" style="position:absolute; left:150px; top:100px;" src="images/3a.png"/>
+<img id="3-3" style="position:absolute; left:185px; top:285px;cursor:pointer;" src="images/s_on.png"/>
+<img id="3-4" style="position:absolute;left:185px; top:285px; visibility:hidden;" src="images/s_on_on.png"/>
+<img id="3-5" style="position:absolute; left:265px; top:290.5px; cursor:pointer;" src="images/s_off.png"/>
+<img id="3-6" style="position:absolute; left:200px; top:145px; visibility:hidden; width:112.5px; height:90px;" src="images/4a.png"/>
+<img id="3-7" style="position:absolute; left:184.25px; top:120px;" src="images/15.png"/>
+<img id="3-8" style="position:absolute; left:295px; top:120px;" src="images/15.png"/>
+<img id="3-9" style="position:absolute;left:440px; top:145px; visibility:hidden" src="images/9.png"/>
+<img id="3-10" style="position:absolute; left:187px; top:152px; visibility:hidden" src="images/9.png"/>
+<img id="3-11" style="position:absolute;left:184.25px; top:137.25px; visibility:hidden;" src="images/15.png"/>
+<img id="3-12" style="position:absolute; left:295px; top:142px; visibility:hidden;" src="images/15.png"/>
+</div>
+
+<div id="canvas4" class="simsubscreen" style="visibility:hidden;">
+<strong class="incanvas">STEP</strong>
+<span class="circlebg">&nbsp;4&nbsp;</span>
+<p class="steptext">&nbsp;Collect the residue left on the 20&micro;m sieve in a separate container.</p>
+<img id="4-1" style="position:absolute; left:150px; top:100px;" src="images/3a.png" />
+<img id="4-2" style="position:absolute; left:200px; top:145px; width:112.5px; height:90px;" src="images/4a.png" />
+
+<img id="4-3" style="position: absolute; left:500px; top:250px; visibility:hidden" src="images/residual.png"/><!-- 20microm -->
+<img id="4-4" style="position: absolute; left:500px; top:292px; visibility:hidden" src="images/residual.png"/><!-- Pan -->
+
+<img id="4-5" style="position: absolute; left:490px; top:271.75px; visibility:hidden" src="images/pan_fill.png"/>
+<img id="4-6" style="position: absolute; left:490px; top: 237px; visibility:hidden" src="images/1a.png"/>
+<img id="4-7" style="position: absolute; left:488.5px; top:230px;visibility:hidden" src="images/cap.png"/>
+
+<img id="4-8" style="position:absolute; left:185px; top:285px;cursor:pointer;" src="images/s_on.png"/>
+<img id="4-9" style="position:absolute; left:265px; top:290.5px;cursor:pointer;" src="images/s_off.png"/>
+
+<img id="4-10" style="position:absolute; left:187px; top:152px;" src="images/9.png"/>
+
+<img id="4-11" style="position:absolute; left:184.25px; top:137.25px; " src="images/15.png"/>
+<img id="4-12" style="position:absolute; left:295px; top:142px;" src="images/15.png"/>
+<img id="4-13" style="position:absolute; left:184.25px; top:120px; visibility:hidden " src="images/15.png"/>
+<img id="4-14" style="position:absolute; left:295px; top:120px; visibility:hidden" src="images/15.png"/>
+
+<img id="4-15" style="position: absolute; left:205px; top:287.5px; visibility:hidden" src="images/soil.png"/>
+
+<img id="4-16" style="position: absolute; left: 151px; top: 270.25px; cursor:move;visibility:hidden;" src="images/plate.png"/>
+
+<img id="4-17" style="position: absolute; left:240px; top:230px; visibility:hidden" src="images/pc.png"/>
+
+<img id="4-18" style="position: absolute; left:305px; top:168px; width:100px; visibility:hidden" src="images/residual.png"/>
+
+<img id="4-19" style="position: absolute; left: 300px; top: 128px; visibility:hidden;" src="images/sp90.png"/>
+</div>
+
+<div class="simsubscreen" id="canvas5" style="visibility:hidden;">
+<strong class="incanvas">STEP</strong>
+<span class="circlebg">&nbsp;5&nbsp;</span>
+<p class="steptext">&nbsp;Measure required quantity of water, then add it to the soil and mix it thoroughly and uniformly.</p>
+<img id="5-14" style="position: absolute; left: 170px; top: 387.5px; visibility:hidden;" src="images/ws.png"/>
+<div id="5-10" style="position:absolute; left:212px; top:475px; width:125px; height:30px; background-color:#A4DDEC; border-radius: 100px / 30px;"></div>
+<div id="5-11" style="position:absolute; left:207px; top:435px; width:135px; height:80px; background-color:#FFFFFF;"></div>
+<div id="5-3" style="position:absolute; left: 338px; top:405.75px; width:91px; height:140px; background-color:#A4DDEC; visibility:hidden;"></div>
+
+<img id="5-7" style="position: absolute; left: 215px; top: 397.5px; visibility:hidden;" src="images/soil.png"/>
+<img id="5-8" style="position: absolute; left: 161px; top: 380.25px; visibility:hidden;" src="images/plate.png"/>
+
+<img id="5-12" style="position:absolute; left:150px; top:275px; visibility:hidden; cursor:pointer;" src="images/trowel.png"/>
+<img id="5-13" style="position:absolute; left:310px; top:265px; visibility:hidden;" src="images/trowel2.png"/>
+
+<img id="5-9" style="position:absolute; left:259px; top:377px; visibility:hidden;" src="images/wa.png"/>
+
+<img id="5-4" style="position:absolute; left: 320px; top:190px; " src="images/msrdev.png"/>
+<img id="5-5" style="position:absolute; left: 413px; top:158px; visibility:hidden; cursor:pointer;" src="images/msrdev1.png"/>
+<img id="5-6" style="position:absolute; left:275px; top:305px; visibility:hidden;" src="images/msrdev2.png"/>
+
+<img id="5-1" style="position:absolute; left:395px; top:65px; cursor:pointer;" src="images/hn.png"/>
+<img id="5-2" style="position:absolute; left:400.5px; top:95px; visibility:hidden;" src="images/hn2.png"/>
+
+<span id="p5-1" style="position:absolute; left:0px; top:120px; text-align:justify; padding:15px; border:1px solid black; background-color:black; border-radius:5px;">
+<p id="p5-2" style="color:white; font-size:15px;" ></p>
+<input id="b5-1" type="button" style="float:right;" value="OK" />
+</div>
+
+<div id="canvas6" class="simsubscreen" style="visibility:hidden;">
+<strong class="incanvas">STEP</strong>
+<span class="circlebg">&nbsp;6&nbsp;</span>
+<p class="steptext">&nbsp;Measure the weight of the empty mould along with the base plate.</p>
+<img id="6-0" style="position:absolute; left:275px; top:300px;" src="images/wm1.png" />
+<img id="6-2" style="position:absolute; left:440px; top:420px;" src="images/tare.png" />
+<p id="p6-1" style="position:absolute; left:377px; top:375px;"></p>
+<img id="6-4" style="position:absolute; left:54.47px; top:315px;" title="Base plate" src="images/baseplate.png" />
+<img id="6-3" style="position:absolute; left:70px; top:365px;" title="Mould" src="images/mld.png" />
+<p id="p6-2" style="position:absolute; left:20px; top:480px; font-size:14px;">Weight of empty mould along with the base plate (W<sub>c</sub>) = _________ g</p>
+</div>
+
+<div id="canvas7" class="simsubscreen" style="visibility:hidden;">
+<strong class="incanvas">STEP</strong>
+<span class="circlebg">&nbsp;7&nbsp;</span>
+<p class="steptext">&nbsp;Fill the mould in 3 layers with the soil sample. Each layer is compacted by giving 25 evenly distributed blows using the rammer.</p>
+<img id="7-7" style="position:absolute; left:315px; top:380px; height:42px; width:90px; visibility:hidden;" title="Base plate" src="images/cs2.png" />
+<img id="7-5" style="position:absolute; left:455px; top:335px; height:170px; width:154px;" title="Base plate" src="images/baseplate.png" />
+<img id="7-6" style="position:absolute; left:110px; top:407.5px; visibility:hidden;" src="images/ws.png"/>
+<img id="7-1" style="position:absolute; left:100px; top:400px; visibility:hidden;"src="images/plate.png" />
+<img id="7-3" style="position:absolute; left:470px; top:365px; height: 120px; width:120px;" src="images/cylinder.png" />
+<img id="7-1a" style="position:absolute; left:110px; top:407.5px; visibility:hidden;"src="images/ws2.png" />
+<img id="7-1b" style="position:absolute; left:110px; top:407.5px; visibility:hidden;"src="images/ws3.png" />
+<img id="7-1c" style="position:absolute;left:100px; top:400px; visibility:hidden;"src="images/plate.png" />
+<img id="7-2a" style="position:absolute;left:60px; top:360px; visibility:hidden;"src="images/trowels.png" />
+<img id="7-2b" style="position:absolute;left:400px; top:300px; visibility:hidden;"src="images/trowel.png" />
+<img id="7-2" style="position:absolute;left:110px; top:300px;  visibility:hidden;"src="images/trowel.png" />
+<img id="7-22" style="position:absolute;left:130px; top:300px;visibility:hidden;"src="images/trowel.png" />
+<img id="7-ee" style="position:absolute;left:505px; top:200px; height: 150px; width:40px; visibility:hidden;"src="images/handCompact.png" />
+<img id="7-eee" style="position:absolute;left:485px; top:200px; height: 150px; width:40px; visibility:hidden;"src="images/handCompact.png" />
+<img id="7-eeee" style="position:absolute;left:525px; top:200px; height: 150px; width:40px; visibility:hidden;"src="images/handCompact.png" />
+<img id="7-3a" style="position:absolute; left:470px; top:365px; height: 120px; width:120px; visibility:hidden;" src="images/cylinder9.png" />
+<img id="7-e" style="position:absolute;left:515px; top:310px; height: 150px; width:40px; visibility:hidden;"src="images/downCompact.png" />
+<img id="7-4" style="position:absolute;left:320px; top:100px; height: 200px; width:65px; visibility:hidden;"src="images/tamping_rod4.png" />
+<img id="7-3ab" style="position:absolute; left:470px; top:365px;  height: 120px; width:120px; visibility:hidden;" src="images/cylinder99.png" />
+<img id="7-part" style="position:absolute; left:505px; top:365px; visibility:hidden; transform: scaleX(-1); -webkit-transform: scaleX(-1);" src="images/pc.png" />
+<img id="7-3" style="position:absolute; left:470px; top:365px; height: 120px; width:120px;" src="images/cylinderWithoutSoil.png" />
+<span id="p7-1" style="position:absolute; left:350px; top:120px; text-align:justify; padding:15px; border:1px solid black; background-color:black; border-radius:5px;">
+<p style="color:white; font-size:15px;" >Place collar on top of the mould as</br> shown below before proceeding. </p>
+<input id="b7-1" type="button" style="float:right;" value="OK" />
+</span>
+</div>
+
+<div id="canvas8" class="simsubscreen" style="visibility:hidden;">
+<strong class="incanvas">STEP</strong>
+<span class="circlebg">&nbsp;8&nbsp;</span>
+<p class="steptext">&nbsp;Remove the collar and then remove extra soil from the mould using edge steel.</p>
+<img id="8-5" style="position:absolute; left:285px; top:285px; height:170px; width:154px;" title="Base plate" src="images/baseplate.png" />
+<img id="8-6" style="position:absolute; left:316.5px; top:335px; visibility:hidden;" src="images/cs2.png" />
+<img id="8-3b" style="position:absolute; left:312px; top:340px; height:19px; width:95px; visibility:hidden;" src="images/cs.png" />
+<img id="8-3" style="position:absolute; left:298px; top:335px; " title="Mould" src="images/mld.png" />
+<img id="8-7" style="position:absolute; left:310px; top:330px; height:37.5px; width:100px;" title="Base plate" src="images/cs2.png" />
+<img id="8-4a" style="position:absolute; left:308.75px; top:313px; height: 55px; width:101.5px; " title="Collar" src="images/collor3.png" />
+<img id="8-1" style="position:absolute; left:230px; top:200px; height: 80px; width:200px; visibility:hidden;" src="images/tamping_rod3.png" />
+</div>
+
+<div id="canvas9" class="simsubscreen" style="visibility:hidden;">
+<strong class="incanvas">STEP</strong>
+<span class="circlebg">&nbsp;9&nbsp;</span>
+<p class="steptext">&nbsp;Weigh the mould containing soil sample along with the base plate.</p>
+<img id="9-0" style="position:absolute; left:275px; top:300px;" src="images/wm1.png" />
+<img id="9-2" style="position:absolute; left:440px; top:420px;" src="images/tare.png" />
+<img id="9-4" style="position:absolute; left:54.47px; top:315px;" src="images/baseplate.png" />
+<img id="9-5" style="position:absolute; left:84px; top:375px; height:19px; width:95px;" src="images/cs.png" />
+<img id="9-3" style="position:absolute; left:70px; top:370px;" title="Mould" src="images/mld.png" />
+<p id="p9-1" style="position:absolute; left:378px; top:375px;"></p>
+<p id="p9-2" style="position:absolute; left:20px; top:480px; font-size:14px;">Weight of empty mould along with the base plate + compacted soil (W<sub>1</sub>) = _________ g</p>
+</div>
+
+<div id="canvas10" class="simsubscreen" style="visibility:hidden;">
+<strong class="incanvas">STEP</strong>
+<span class="circlebg">&nbsp;10&nbsp;</span>
+<p class="steptext">&nbsp;Measure the weight of the empty container.</p>
+<img id="10-0" style="position:absolute; left:275px; top:300px;" src="images/wm1.png" />
+<img id="10-2" style="position:absolute; left:440px; top:420px;" src="images/tare.png" />
+<img id="10-3" style="position:absolute; left:70px; top:385px;" src="images/container.png" />
+<p id="p10-1" style="position:absolute; left:378px; top:375px;"></p>
+<p id="p10-2" style="position:absolute; left:20px; top:480px; font-size:14px;">Weight of empty container (W<sub>2</sub>) = _________ g</p>
+</div>
+
+<div id="canvas11" class="simsubscreen" style="visibility:hidden;">
+<strong class="incanvas">STEP</strong>
+<span class="circlebg">&nbsp;11&nbsp;</span>
+<p class="steptext">&nbsp;Take some soil sample in a container for water content determination.</p>
+<img id="11-5" style="position:absolute; left:456px; top:408px; visibility:hidden;"src="images/ws.png" />
+<img id="11-4" style="position:absolute; left:450px; top:400px;"src="images/plate.png" />
+<img id="11-1" style="position:absolute; left:480px; top:300px; visibility:hidden; "src="images/trowel.png" />
+<img id="11-7" style="position:absolute; left:139px; top:380px; height:19px; width:95px;" src="images/cs.png" />
+<img id="11-2" style="position:absolute; left:125px; top:375px;" title="Mould" src="images/mld.png" />
+<img id="11-6a" style="position:absolute; left:135px; top:440px; visibility:hidden;" src="images/cs.png" />
+<img id="11-5a" style="position:absolute; left:456px; top:408px; visibility:hidden;"src="images/ws2.png" />
+<img id="11-2b" style="position:absolute; left:350px; top:260px; height: 95px; width:115px; visibility:hidden;" src="images/mld.png" />
+<img id="11-6" style="position:absolute; left:130px; top:420px; visibility:hidden;" src="images/container.png" />
+<img id="11-3a" style="position:absolute;left:200px; top:315px; visibility:hidden; ;"src="images/trowel.png" />
+<img id="11-part" style="position:absolute; left:470px; top:330px; height: 40px; visibility:hidden; transform: scaleX(-1); -webkit-transform: scaleX(-1);"src="images/pc.png"/>
+<img id="11-3" style="position:absolute; left:400px; top:365px; visibility:hidden;"src="images/trowels.png"/>
+
+<span id="p11-1" style="position:absolute; left:40px; top:120px; text-align:justify; padding:15px; border:1px solid black; background-color:black; border-radius:5px;">
+<p style="color:white; font-size:15px;" >Remove the mould from the base</br> plate before proceeding. </p>
+<input id="b11-1" type="button" style="float:right;" value="OK" />
+</span>
+</div>
+
+<div id="canvas12" class="simsubscreen" style="visibility:hidden;">
+<strong class="incanvas">STEP</strong>
+<span class="circlebg">&nbsp;12&nbsp;</span>
+<p class="steptext">&nbsp;Measure the weight of the container with wet soil.</p>
+<img id="12-0" style="position:absolute; left:275px; top:300px;" src="images/wm1.png" />
+<img id="12-2" style="position:absolute; left:440px; top:420px;" src="images/tare.png" />
+<img id="12-3b" style="position:absolute; left:75px; top:405px; " src="images/cs.png" />
+<img id="12-3a" style="position:absolute; left:70px; top:385px;" src="images/container.png" />
+<p id="p12-1" style="position:absolute; left:378px; top:375px;"></p>
+<p id="p12-2" style="position:absolute; left:20px; top:480px; font-size:14px;">Weight of container + wet soil (W<sub>3</sub>) = _________ g</p>
+</div>
+
+<div id="canvas13" class="simsubscreen" style="visibility:hidden;">
+<strong class="incanvas">STEP</strong>
+<span class="circlebg">&nbsp;13&nbsp;</span>
+<p class="steptext">&nbsp;Place the container with wet soil in the oven for 24 hours at 110&deg;C temperature.</p>
+<div id="13-12" style="position:absolute; left:116px; top:126px; width:40px; height:17.5px; background-color:#D3D3D3; font-weight:bold; font-size:14px;" >&nbsp;105</div>
+<img id="13-1" style="position:absolute; left:20px; top:100px; width:210px;" src="images/oven.png" />
+<div id="13-13" style="position:absolute; left:168px; top:124px; width:20.25px; height:18.5px; background-color:transparent; font-weight:bold; font-size:14px; cursor:pointer;" title="Increase Temperature"></div>
+<div id="13-14" style="position:absolute; left:192.5px; top:124px; width:20.25px; height:18.5px; background-color:transparent; font-weight:bold; font-size:14px; cursor:pointer;" title="Decrease Temperature"></div>
+
+<img id="13-3b" style="position:absolute; left:75px; top:445px; " src="images/cs.png" />
+<img id="13-3a" style="position:absolute; left:70px; top:425px;" src="images/container.png" />
+
+<div class="door" id="incDoor13-1" ></div>
+<div class="door" id="incDoor13-2" style="visibility:hidden;"></div>
+<div class="door" id="incDoor13-3" style="visibility:hidden;"></div>
+<img id="13-11" style="position:absolute; left:35px; top:225px; cursor:pointer;" src="images/ovenknob.png" />
+<div id="13-2" style="position:absolute; left:0px; top:0px; width:750px; height:550px; background-color:white; visibility:hidden;"></div>
+<h1 id="13-3" style="position:absolute;  left:225px; top:225px; color:grey; text-align:center; display:none;">After 24 hours</h1>
+</div>
+
+<div id="canvas14" class="simsubscreen" style="visibility:hidden;">
+<strong class="incanvas">STEP</strong>
+<span class="circlebg">&nbsp;14&nbsp;</span>
+<p class="steptext">&nbsp;Measure the weight of the dry soil sample.</p>
+<div id="15-3" style="position:absolute; left:20px; top:120px; width:530px; height:350px; background-color:white;"></div>
+
+<img id="15-wm" style="position:absolute; left:420px; top:320px; visibility:hidden;" src="images/wm1.png" />
+<img id="15-on" style="position:absolute; left:480px; top:440px; visibility:hidden;" src="images/on.png" />
+<img id="15-t" style="position:absolute;left:585px; top:440px; visibility:hidden;"src="images/tare.png" />
+
+<img id="15-0" style="position:absolute; left:275px; top:300px; visibility:hidden;" src="images/wm1.png" />
+<img id="15-2" style="position:absolute; left:440px; top:420px; visibility:hidden;" src="images/tare.png" />
+
+<img id="15-3b" style="position:absolute; left:75px; top:385px; " src="images/cs.png" />
+<img id="15-3a" style="position:absolute; left:70px; top:365px; " src="images/container.png" />
+
+<p id="p15-1" style="position:absolute; left:378px; top:375px; visibility:hidden;">0.003</p>
+<p id="p15-2" style="position:absolute; left:20px; top:480px; font-size:14px; visibility:hidden;">Weight of container + dry soil (W<sub>4</sub>) = _________ g</p>
+</div>
+
+<div id="canvas15" class="simsubscreen" style="visibility:hidden;">
+<h3 style="position:absolute; left:-45px; top:-10px;">&nbsp;Observations:</h3>
+<table style="position:absolute; left:-35px; top:40px; border:1px solid black; font-size:14px;  text-align:left;">
+<tr>
+<td style="border:1px solid black; padding:5px;">Trial No.</td>
+<td id="t1" style="border:1px solid black; padding:10px;"></td>
+</tr>
+<tr>
+<td style="border:1px solid black; padding:5px;">Water to be added</td>
+<td id="t2" style="border:1px solid black; padding:10px;"></td>
+</tr>
+<tr>
+<td style="border:1px solid black; padding:5px;">Weight of cylinder + compacted soil, W<sub>1</sub></td>
+<td id="t3" style="border:1px solid black; padding:10px;"></td>
+</tr>
+<tr>
+<td style="border:1px solid black; padding:5px;">Weight of empty container, W<sub>2</sub></td>
+<td id="t4" style="border:1px solid black; padding:10px;"></td>
+</tr>
+<tr>
+<td style="border:1px solid black; padding:5px;">Weight of container + wet soil, W<sub>3</sub></td>
+<td id="t5" style="border:1px solid black; padding:10px;"></td>
+</tr>
+<tr>
+<td style="border:1px solid black; padding:5px;">Weight of container + dry soil, W<sub>4</sub></td>
+<td id="t6" style="border:1px solid black; padding:10px;"></td>
+</tr>
+</table>
+
+<h3 style="position:absolute; left:-45px; top:300px;">&nbsp;Variables used in calculation:</h3>
+<table style="position:absolute; left:-35px; top:350px; border:1px solid black; font-size:14px;  text-align:left;">
+<tr>
+<td style="border:1px solid black; padding:5px;">Empty weight of mould, W<sub>c</sub></td>
+<td style="border:1px solid black; padding:10px;">2315 g</td>
+</tr>
+<tr>
+<td style="border:1px solid black; padding:5px;">Weight of compacted soil, W<sub>w</sub> (g)</td>
+<td style="border:1px solid black; padding:10px;">W<sub>1</sub> - W<sub>c</sub></td>
+</tr>
+<tr>
+<td style="border:1px solid black; padding:5px;">Volume of mould, V<sub>c</sub></td>
+<td style="border:1px solid black; padding:10px;">981.74 cc</td>
+</tr>
+</table>
+
+<h3 style="position:absolute; left:360px; top:-10px;">&nbsp;Calculations:</h3>
+<table style="position:absolute; left:370px; top:50px;  font-size:14px;  text-align:left;">
+<tr>
+<td style="padding:5px;">Wet density, <sup>&rho;</sup><sub>wet</sub> =</td>
+<td id="" style="padding:10px;">
+	<span class="frac"><sup>W<sub>w</sub></sup><span>&frasl;</span><sub>V<sub>c</sub></sub></span> =
+	<input id="wd" type="text" style=" border:none; border-bottom-style:double; width:55px;" required > g/cc
+	<span id="mark1" style="font-size:22px; visibility:hidden;" ></span>
+</td>
+</tr>
+<tr>
+<td style="padding:5px;"></td>
+<td id="" style="padding:15px;">
+	<input id="chk1" class="clsBtn" type="button" name="check" value="Check" />
+	<input id="res1" class="clsBtn" type="button" name="Formula" value="Result" disabled />
+</td>
+</tr>
+<tr>
+<td style="padding:5px;">Water content, W =</td>
+<td id="" style="padding:10px;"><span class="frac"><sup>W<sub>3</sub>-W<sub>4</sub></sup><span>&frasl;</span><sub>W<sub>4</sub>-W<sub>2</sub></sub></span> x 100</td>
+</tr>
+<tr>
+<td style="padding:5px; text-align:right;">=</td>
+<td id="" style="padding:10px;">
+	<input id="wc" type="text" style=" border:none; border-bottom-style:double; width:55px;" required >
+	<span id="mark2" style="font-size:22px; visibility:hidden;" ></span>
+</td>
+</tr>
+<tr>
+<td style="padding:5px;"></td>
+<td id="" style="padding:10px;">
+	<input id="chk2" class="clsBtn" type="button" name="check" value="Check" />
+	<input id="res2" class="clsBtn" type="button" name="Formula" value="Result" disabled />
+</td>
+</tr>
+<tr>
+<td style="padding:5px;">Dry Density, <sup>&rho;</sup><sub>dry</sub> =</td>
+<td id="" style="padding:10px;">
+	<span class="frac"><sup><sup>&rho;</sup><sub>wet</sub></sup><span>&frasl;</span><sub>1+W</sub></span> =
+	<input id="dd" type="text" style=" border:none; border-bottom-style:double; width:55px;" required > g/cc
+	<span id="mark3" style="font-size:22px; visibility:hidden;"></span>
+</td>
+</tr>
+<tr>
+<td style="padding:5px;"></td>
+<td id="" style="padding:10px;">
+	<input id="chk3" class="clsBtn" type="button" name="check" value="Check"/>
+	<input id="res3" class="clsBtn" type="button" name="Formula" value="Result" disabled />
+</td>
+</tr>
+</table>
+<div id="sheet1" style="position:absolute; left:370px; top:150px; width:350px; height:175px; background-color:#ffffff;"></div>
+<div id="sheet2" style="position:absolute; left:370px; top:320px; width:350px; height:175px; background-color:#ffffff;"></div>
+
+<div id="Repeat15-1" style="position:absolute; left:-50px; top:0px; width:750px; height:550px; background-color:white; visibility:hidden;"></div>
+<h1 id="Repeat15-2" style="position:absolute; left: 55px; top: 200px; color:grey; text-align:center; visibility: hidden;">Repeat the procedure from step<br> 1 - 14 for 2 more trials</h1>
+
+</div>
+
+<div id="canvas16" class="simsubscreen" style="visibility:hidden;">
+<h3 style="position:absolute; left:-50px; top:10px;">&nbsp;Observations:</h3>
+<table id="dataTable" border size=1 style="position:absolute; left:-40px; top:70px; font-size:12px; text-align:center;">
+<tr>
+<td style="text-align:center; font-family:verdana; font-size:12px; padding: 5px;">Trial No.</td>
+<td style="text-align:center; font-family:verdana; font-size:12px; padding: 5px;">Water to be added (g)</td>
+<td style="text-align:center; font-family:verdana; font-size:12px; padding: 5px;">Weight of cylinder + compacted soil, W<sub>1</sub> (g)</td>
+<td style="text-align:center; font-family:verdana; font-size:12px; padding: 5px;" >Weight of compacted soil, W<sub>w</sub> (g) </td>
+<td style="text-align:center; font-family:verdana; font-size:12px; padding: 5px;">
+	<span class="TTText"> Wet density, &rho;<sub>wet</sub> (g/cc)
+		<span  class="TTFormula" style="font-size:14px;">&rho;<sub>wet</sub> =
+			<span class="frac"><sup>W<sub>w</sub></sup><span>&frasl;</span><sub>V<sub>c</sub></sub></span>
+		</span>
+	</span>
+</td>
+<td style="text-align:center; font-family:verdana; font-size:12px; padding: 5px;">Weight of empty container, W<sub>2</sub> (g)</td>
+<td style="text-align:center; font-family:verdana; font-size:12px; padding: 5px;">Weight of empty container + wet soil, W<sub>3</sub> (g)</td>
+<td style="text-align:center; font-family:verdana; font-size:12px; padding: 5px;">Weight of empty container + dry soil, W<sub>4</sub> (g)</td>
+<td style="text-align:center; font-family:verdana; font-size:12px; padding: 5px;">
+	<span class="TTText"> Moisture content, W
+		<span  class="TTFormula" style="font-size:12px;">W =
+			<span class="frac"><sup>W<sub>3</sub>-W<sub>4</sub></sup><span>&frasl;</span><sub>W<sub>4</sub>-W<sub>2</sub></sub></span> x 100
+		</span>
+	</span>
+</td>
+<td style="text-align:center; font-family:verdana; font-size:12px; padding: 5px;">
+	<span class="TTText"> Dry Density, &rho;<sub>dry</sub> (g/cc)
+		<span  class="TTFormula" style="font-size:14px;">&rho;<sub>dry</sub> =
+			<span class="frac"><sup><sup>&rho;</sup><sub>wet</sub></sup><span>&frasl;</span><sub>1+W</sub></span>
+		</span>
+	</span>
+</td>
+</tr>
+</table>
+</div>
+
+<div class="simsubscreen" id="canvas17" style="visibility:hidden">
+<center><h2 id="step7" style="font-family:verdana; position:absolute; left:210px; top:-25px; ">Characteristic Curves<h2></center></p>
+<div id="chartContainer" style="height: 400px; width: 550px; margin-left:50px; margin-right:100px; margin-top:30px"></div>
+<p id="p17-1" style="visibility:hidden; position:absolute; left:10px; top:425px; font-size:12px;"></p>
+<p id="p17-2" style="visibility:hidden; position:absolute; left:10px; top:460px; font-size:12px;"><b>Inference:</b> The soil sample taken for the experiment is sandy clay soil which has quick water draining capacity </br>and is easy to work with.</p>
+</div>
+
+<div id="questDiv" style="position:absolute; font-size:14px; background-color:grey; color:white; padding:7.5px; border-radius:5px; visibility:hidden;">
+	<p id="q"></p>
+	<select id="answer" ></select>
+	<p id="a"></p>
+</div>
+
+<div id="nav">
+<img id="nextButton" onclick="navNext()" src="images/Next.png" />
+</div>
+
+<div id="">
+<p id="trial" style="text-transform: uppercase;visibility :hidden; font-weight: bold;font-family:verdana; font-size:14px;"><strong>Trial = </strong></p>
+</div>
+
+<img class ="" id="arrow1" style="visibility:hidden;" src="images/arrow1.png"/>
+
+<div id="copyright"> &copy; 2019 - <script>document.write(new Date().getFullYear())</script> SOLVE - The Virtual Lab @ NITK Surathkal, Department of Water Resources & Ocean Engineering</div>
+</div>
 </body>
 </html>
