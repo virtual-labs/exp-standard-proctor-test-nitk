@@ -502,6 +502,11 @@ function magic()
 	else if(simsubscreennum==5)
 	{
 		refresh();
+		document.getElementById('trial').style.visibility="visible";
+		document.getElementById('trial').innerHTML="Trial : " + repeat;
+		document.getElementById("mark1").style.visibility = "hidden";
+		document.getElementById("mark2").style.visibility = "hidden";
+		document.getElementById("mark3").style.visibility = "hidden";
 		document.getElementById("4-4").style.visibility = "hidden";
 		document.getElementById("4-5").style.visibility = "hidden";
 		document.getElementById("4-15").style.visibility = "hidden";
@@ -509,12 +514,12 @@ function magic()
 		document.getElementById("4-17").style.visibility = "hidden";
 		document.getElementById("4-18").style.visibility = "hidden";
 		document.getElementById("nextButton").style.visibility = "hidden";
-		
+
 		document.getElementById("p5-1").style.visibility = "visible";
 		document.getElementById("5-1").style.visibility = "visible";
 		document.getElementById("5-4").style.visibility = "visible";
-		
-		document.getElementById("p5-2").innerHTML="Add "+dataset[p][6]+"ml of water into the graduated jar.";
+		if(repeat===1) document.getElementById("p5-2").innerHTML="Add "+dataset[p][6]+"ml of water into the graduated jar.";
+		if(repeat===2) document.getElementById("p5-2").innerHTML="Add 60ml of water into the graduated jar.";
 		document.getElementById("b5-1").onclick=function()
 		{
 			document.getElementById("b5-1").onclick="";
@@ -1264,9 +1269,18 @@ function check()
 {
 	if(document.getElementById("chk3").style.visibility=="hidden")
 	{
-		if(repeat<3)
+		//For 3 trials
+		// if(repeat<3)
+		// {
+			// simsubscreennum=0;
+			// p++;
+			// document.getElementById("nextButton").style.visibility="visible";
+		// }
+		//For 2 trials
+		if(repeat<2)
 		{
-			simsubscreennum=0;
+			repeat++;
+			simsubscreennum=4;
 			p++;
 			document.getElementById("nextButton").style.visibility="visible";
 		}
