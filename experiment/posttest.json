@@ -80,8 +80,8 @@
       "explanations": {
         "a": "Number of layers Depends on the type of soil used and compaction required.",
         "b": "The number of layers does not depend on type water content. It depends on the type of soil used and compaction.",
-        "c": "As numbers of layers in compaction of soil depends only on the amount of compaction required and the soil type, only one of the above option is correct not "all of the above".",
-        "d": "As one of the option given above is correct, option "none of the above" is incorrect."
+        "c": "As numbers of layers in compaction of soil depends only on the amount of compaction required and the soil type, only one of the above option is correct not 'all of the above'.",
+        "d": "As one of the option given above is correct, option 'none of the above' is incorrect."
       },
       "correctAnswer": "a",
       "difficulty": "advanced"
