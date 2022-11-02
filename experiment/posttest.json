@@ -4,19 +4,19 @@
     {
       "question": "The standard proctor test was designed by",
       "answers": {
-        "a": "R.R Proctor",
+        "a": "R.R. Proctor",
         "b": "Skempton",
         "c": "Darcy",
         "d": "Terzagi"
       },
       "explanations": {
-        "a": "",
-        "b": "",
-        "c": "",
-        "d": ""
+        "a": "R.R. Proctor is the inventor of the proctor test and associated the theory of compaction.",
+        "b": "Skempton is recognized with Terzaghi, one of the founding father of engineering discipline of soil mechanics.",
+        "c": "Darcy conducted experiments on flow of water through soil and developed darcy's law.",
+        "d": "Terzaghi is known as father of soil mechanics."
       },
       "correctAnswer": "d",
-      "difficulty": ""
+      "difficulty": "beginner"
     },
     {
       "question": "In a standard proctor test, the mould has a capacity of _____ cu. ft.",
@@ -27,13 +27,13 @@
         "d": "1/40"
       },
       "explanations": {
-        "a": "",
-        "b": "",
-        "c": "",
-        "d": ""
+        "a": "The capacity of standard procter test mould is not 1/10 cu.ft.",
+        "b": "The capacity of standard procter test mould is not 1/20 cu.ft.",
+        "c": "he capacity of standard procter test mould is 1/30 cu.ft.",
+        "d": "The capacity of standard procter test mould is not 1/40 cu.ft."
       },
       "correctAnswer": "c",
-      "difficulty": ""
+      "difficulty": "beginner"
     },
     {
       "question": "In standard Proctor test, rammer weight is _____.",
@@ -44,13 +44,13 @@
         "d": "20 lb"
       },
       "explanations": {
-        "a": "",
-        "b": "",
-        "c": "",
-        "d": ""
+        "a": "The weight of the rammer in standard proctor test is based on IS 27-20(part-7). The weight of rammer used is 2.5kg.",
+        "b": "The weight of rammer for heavy compaction is 4.5 to 4.89kg.",
+        "c": "The weight of rammer in standard proctor test is not 18lb.",
+        "d": "The weight of rammer in standard proctor test is not 20lb."
       },
       "correctAnswer": "a",
-      "difficulty": ""
+      "difficulty": "intermediate"
     },
     {
       "question": "Once compaction is done",
@@ -61,13 +61,13 @@
         "d": "There is an increase in the volume of soil"
       },
       "explanations": {
-        "a": "",
-        "b": "",
-        "c": "",
-        "d": ""
+        "a": "Due to the compaction of soil there will be a reduction in air voids in soil will be tightly packed which results in decrease in volume of soil.",
+        "b": "When load is applied on the top surface the soil gets compressed and there will be a removal of air.",
+        "c": "Both the above options provided are correct where both removal air and decrease in volume takes place.",
+        "d": "When soil is compacted the air voids present gets expelled, due to which there will be a reduction in volume of soil. The volume of soil does not increase."
       },
       "correctAnswer": "c",
-      "difficulty": ""
+      "difficulty": "intermediate"
     },
     {
       "question": "Numbers of layers in compaction of soil is depending upon _____________________.",
@@ -78,13 +78,13 @@
         "d": "None of the above"
       },
       "explanations": {
-        "a": "",
-        "b": "",
-        "c": "",
-        "d": ""
+        "a": "Number of layers Depends on the type of soil used and compaction required.",
+        "b": "The number of layers does not depend on type water content. It depends on the type of soil used and compaction.",
+        "c": "As numbers of layers in compaction of soil depends only on the amount of compaction required and the soil type, only one of the above option is correct not "all of the above".",
+        "d": "As one of the option given above is correct, option "none of the above" is incorrect."
       },
       "correctAnswer": "a",
-      "difficulty": ""
+      "difficulty": "advanced"
     }
   ]
 }
