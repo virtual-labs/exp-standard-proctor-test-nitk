@@ -10,12 +10,12 @@
         "d": "Terzagi"
       },
       "explanations": {
-        "a": "R.R. Proctor is the inventor of the proctor test and associated the theory of compaction.",
+        "a": "Correct answer. R.R. Proctor is the inventor of the proctor test and associated the theory of compaction.",
         "b": "Skempton is recognized with Terzaghi, one of the founding father of engineering discipline of soil mechanics.",
         "c": "Darcy conducted experiments on flow of water through soil and developed darcy's law.",
-        "d": "Correct answer. Terzaghi is known as father of soil mechanics."
+        "d": "Terzaghi is known as father of soil mechanics."
       },
-      "correctAnswer": "d",
+      "correctAnswer": "a",
       "difficulty": "beginner"
     },
     {
