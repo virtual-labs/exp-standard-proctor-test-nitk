@@ -13,7 +13,7 @@
         "a": "R.R. Proctor is the inventor of the proctor test and associated the theory of compaction.",
         "b": "Skempton is recognized with Terzaghi, one of the founding father of engineering discipline of soil mechanics.",
         "c": "Darcy conducted experiments on flow of water through soil and developed darcy's law.",
-        "d": "Terzaghi is known as father of soil mechanics."
+        "d": "Correct answer. Terzaghi is known as father of soil mechanics."
       },
       "correctAnswer": "d",
       "difficulty": "beginner"
@@ -29,7 +29,7 @@
       "explanations": {
         "a": "The capacity of standard procter test mould is not 1/10 cu.ft.",
         "b": "The capacity of standard procter test mould is not 1/20 cu.ft.",
-        "c": "he capacity of standard procter test mould is 1/30 cu.ft.",
+        "c": "Correct answer. The capacity of standard procter test mould is 1/30 cu.ft.",
         "d": "The capacity of standard procter test mould is not 1/40 cu.ft."
       },
       "correctAnswer": "c",
@@ -44,7 +44,7 @@
         "d": "20 lb"
       },
       "explanations": {
-        "a": "The weight of the rammer in standard proctor test is based on IS 27-20(part-7). The weight of rammer used is 2.5kg.",
+        "a": "Correct answer. The weight of the rammer in standard proctor test is based on IS 27-20(part-7). The weight of rammer used is 2.5kg.",
         "b": "The weight of rammer for heavy compaction is 4.5 to 4.89kg.",
         "c": "The weight of rammer in standard proctor test is not 18lb.",
         "d": "The weight of rammer in standard proctor test is not 20lb."
@@ -63,7 +63,7 @@
       "explanations": {
         "a": "Due to the compaction of soil there will be a reduction in air voids in soil will be tightly packed which results in decrease in volume of soil.",
         "b": "When load is applied on the top surface the soil gets compressed and there will be a removal of air.",
-        "c": "Both the above options provided are correct, where, both removal air and decrease in volume takes place.",
+        "c": "Correct answer. Both the above options provided are correct, where, both removal air and decrease in volume takes place.",
         "d": "When soil is compacted the air voids present gets expelled, due to which there will be a reduction in volume of soil. The volume of soil does not increase."
       },
       "correctAnswer": "c",
@@ -78,7 +78,7 @@
         "d": "None of the above"
       },
       "explanations": {
-        "a": "Number of layers Depends on the type of soil used and compaction required.",
+        "a": "Correct answer. Number of layers Depends on the type of soil used and compaction required.",
         "b": "The number of layers does not depend on type water content. It depends on the type of soil used and compaction.",
         "c": "As numbers of layers in compaction of soil depends only on the amount of compaction required and the soil type, only one of the above option is correct not 'all of the above'.",
         "d": "As one of the option given above is correct, option 'none of the above' is incorrect."
