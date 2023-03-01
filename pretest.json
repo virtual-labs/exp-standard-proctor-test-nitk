@@ -1,0 +1,86 @@
+{
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "The measurement of compaction can be performed in terms of ",
+      "answers": {
+        "a": "Permeability",
+        "b": "Compressibility",
+        "c": "Specific gravity",
+        "d": "Dry density"
+      },
+      "explanations": {
+        "a": "Permeability is measured in terms of rate of water flow through the soil in a given period of time.",
+        "b": "Compressibility is the measure of change in volume of solid or fluid in response to pressure change.",
+        "c": "Specific gravity is generally measured in relation to water at its densest state.",
+        "d": "Correct answer. Compaction is measured quantitatively in terms of dry unit weight of soil."
+      },
+      "correctAnswer": "d",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "The aim of compaction is",
+      "answers": {
+        "a": "Decreasing dry density ",
+        "b": "Increasing porosity",
+        "c": "Decreasing void ratio",
+        "d": "Decreasing shear strength"
+      },
+      "explanations": {
+        "a": "Compaction is not about decreasing the dry density of soil. Dry density is the value  of soil when the soil is completely dry.",
+        "b": "From compaction, porosity of soil does not increase.",
+        "c": "Correct answer. Compaction of soil is the process of increasing the unit weight of soil by reducing the air voids by forcing the soil to a dense state.",
+        "d": "Compaction of soil does not result in decrease in shear strength."
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Which of the following is the correct statement?<br>Vibratory rollers are suitable for compacting _____________.",
+      "answers": {
+        "a": "Organic soil",
+        "b": "Clays",
+        "c": "Sand and gravels",
+        "d": "Clay silts"
+      },
+      "explanations": {
+        "a": "Organic matter attaches to the soil and binds aggregate and reduces compaction.",
+        "b": "Clays are not suitable for vibratory rollers. Since clay is cohesive soil, sheep foot rollers are most suitable.",
+        "c": "Correct answer. Sand and gravels are suitable for compacting in a vibratory roller.",
+        "d": "Clay silts are not suitable for vibratory rollers."
+      },
+      "correctAnswer": "c",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "As the Compaction increases, the porosity decreases.",
+      "answers": {
+        "a": "False",
+        "b": "True"
+      },
+      "explanations": {
+        "a": "Compaction is the process in which air voids are reduced by arranging the soil to denser state. This arrangement of soil to a denser state reduces the porosity. Hence the given statement is true.",
+        "b": "Correct answer. As the porosity decreases due to increases in compaction, the given statement is true."
+      },
+      "correctAnswer": "b",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "Which of the following does not produce compaction?",
+      "answers": {
+        "a": "Vibration",
+        "b": "Tamping",
+        "c": "Rolling",
+        "d": "Adding excess water"
+      },
+      "explanations": {
+        "a": "Vibration is the process of removing air voids by machine. Due to the vibration produced, the air voids will be removed and soil gets compacted.",
+        "b": "Tamping is the process of removing air voids by giving tamp using a tamping rod. Due to the impact of the rod the soil gets compacted.",
+        "c": "The Roller is made to move on the surface of the soil, which removes the air voids present and compacts the soil uniformly.",
+        "d": "Correct answer. When water is added to the soil sample, the air voids get filled with water and it starts swelling which leads to consolidation. Hence reduces the compaction."
+      },
+      "correctAnswer": "d",
+      "difficulty": "advanced"
+    }
+  ]
+}
