@@ -8,15 +8,15 @@
 <img src="images/3.png"/>
 
 3. Click on the 20µm sieve to place on the pan and pour weighed quantity of air-dried soil (fine aggregate) into the sieve, then close the lid.</br>
-<img src="images/4.png"/></br></br>
-<img src="images/5.png"/></br></br>
-<img src="images/6.png"/></br>
+<img src="images/4.png" /></br></br>
+<img src="images/5.png" /></br></br>
+<img src="images/6.png" /></br>
 
-4. Click on the set of sieves to place it in the mechanical shaker and allow to shake it for 10 minutes. Then click on the next button to proceed.</br>
-<img src="images/9.png"/></br>
+4. Click on the sieve set to place it in the mechanical shaker and allow to shake it for 10 minutes. Then click on the next button to proceed.</br>
+<img src="images/9.png" /></br>
 
 5. Click on the 20 micron sieve to collect the residue left over it in a pan.</br>
-<img src="images/12.png"/></br>
+<img src="images/12.png" /></br>
 
 6. Click on the measuring jar to measure the required quantity of water, then add it to the soil and mix it thoroughly and uniformly.</br>
 <img src="images/13.png"/></br></br>
